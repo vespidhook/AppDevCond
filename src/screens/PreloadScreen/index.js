@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import C from './style';
 
 import { useStateValue } from '../../contexts/StateContext';
-import api from '../../sevices/api';
+import api from '../../services/api';
 
 export default() => {
     const navigation = useNavigation();
