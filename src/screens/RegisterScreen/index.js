@@ -21,6 +21,26 @@ export default () => {
     });
   }, []);
 
+  const handleRegisterButton = async () => {
+    if(name && email && cpf && password && passwordConfirm) {
+      let result = await api.register(name, email, cpf, password, passwordConfirm);
+      if(result.error === '') {
+        dispatch({type: 'setToken', payload: {token: result.token}});
+        dispatch({type: 'setUser', payload: {user: result.user}});
+
+        navigation.reset({
+          index: 1,
+          routes: [{name: 'ChoosePropertyScreen'}],
+        });
+      } else {
+        alert(result.error);
+      }
+
+    } else {
+      alert("Preencha todos os campos");
+    }
+  }
+
   return (
     <C.Container>
       <C.Field
@@ -56,7 +76,7 @@ export default () => {
         onChangeText={t => setPasswordConfirm(t)}
       />
 
-      <C.ButtonArea onPress={null}>
+      <C.ButtonArea onPress={handleRegisterButton}>
         <C.ButtonText>Cadastrar</C.ButtonText>
       </C.ButtonArea>
     </C.Container>
