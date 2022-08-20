@@ -3,37 +3,41 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        padding: 20px;
         background-color: #f5f6fa;
     `,
-    Logo: styled.Image`
-        width: 250px;
-        height: 200px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
+    Scroller: styled.ScrollView`
+        padding: 20px;
+        flex: 1;
     `,
-    Field: styled.TextInput`
-        border-width: 1px;
-        border-color: #ccc;
-        background-color: #fff;
-        border-radius: 5px;
+    LoadingIcon: styled.ActivityIndicator``,
+    HeadTitle: styled.Text`
+        font-size: 16px;
         color: #000;
-        font-size: 15px;
-        padding: 10px;
-        margin-bottom: 15px;
+        text-align: center;
+        margin-top: 10px;
     `,
-    ButtonArea: styled.TouchableOpacity`
+    BigArea: styled.View`
+        margin: 50px 0;
+        align-items: center;
+    `,
+    ExitButtonArea: styled.TouchableOpacity`
         background-color: #8863e6;
-        padding: 12px;
+        padding: 15px;
         justify-content: center;
         align-items: center;
-        border-radius: 5px;
-        margin-bottom: 15px;
     `,
-    ButtonText: styled.Text`
+    ExitButtonText: styled.Text`
         color: #fff;
         font-size: 15px;
         font-weight: bold;
-    `
+    `,
+    PropertyList: styled.View`
+        margin: 20px 0;
+    `,
+    ButtonArea: styled.TouchableOpacity`
+        background-color: #fff;
+        border-width: 2px;
+        border-color: #e8e9ed;
+    `,
+    ButtonText: styled.Text``,
 } 
