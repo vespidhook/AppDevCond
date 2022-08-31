@@ -8,6 +8,8 @@ import { LogBox } from "react-native";
 
 import { useStateValue } from '../contexts/StateContext';
 
+import api from '../services/api';
+
 const DrawerArea = styled.View`
     flex: 1;
     background-color: #fff;
@@ -61,9 +63,39 @@ const FooterUnitButton = styled.TouchableOpacity`
 
 `;
 
+const MenuButton = styled.TouchableOpacity`
+  flex-direction: row;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  align-items: center;
+`;
+const MenuSquare = styled.View`
+  width: 5px;
+  height: 35px;
+  margin-right: 20px;
+  background-color: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+`;
+const MenuButtonText = styled.Text`
+  font-size: 15px;
+  margin-left: 10px;
+  color: #666e78
+`;
+
 export default (props) => {
     const navigation = useNavigation();
     const [context, dispatch] = useStateValue();
+
+    const menus = [
+      {title : 'Mural de avisos', icon: 'inbox', screen: 'WallScreen'},
+      {title : 'Documentos', icon: 'file-text', screen: 'DocumentScreen'},
+      {title : 'Reservas', icon: 'calendar', screen: 'ReservationScreen'},
+      {title : 'Livro de ocorrências', icon: 'bug', screen: 'WarningScreen'},
+      {title : 'Achados e perdidos', icon: 'search', screen: 'FoundAndLostScreen'},
+      {title : 'Boletos', icon: 'wpforms', screen: 'BilletScreen'},
+      {title : 'Perfil', icon: 'user', screen: 'ProfileScreen'},
+    ]
 
     const handleChangeUnit = async () => {
       await AsyncStorage.removeItem('property');
@@ -71,6 +103,14 @@ export default (props) => {
         index: 1,
         routes:[{name: 'ChoosePropertyScreen'}]
       });
+    }
+
+    const handleLogoutButton = async () => {
+      await api.logout();
+      navigation.reset({
+        index: 1,
+        routes:[{name: 'LoginScreen'}]
+      })
     }
 
     // Silenciando erro do removeItem
@@ -85,7 +125,18 @@ export default (props) => {
           />
         </DrawerLogoArea>
         <DrawerScroller>          
-              <Icon  size={20} color={'#666E78'} />
+              {menus.map((item, index) => (
+                <MenuButton key={index} onPress={() => navigation.navigate(item.screen)}>
+                  <MenuSquare></MenuSquare>
+                  <Icon name={item.icon} size={20} color={'#666e78'} />
+                  <MenuButtonText>{item.title}</MenuButtonText>
+                </MenuButton>
+              ))}
+              <MenuButton onPress={handleLogoutButton}>
+                  <MenuSquare></MenuSquare>
+                  <Icon name="toggle-left" size={20} color={'#666e78'} />
+                  <MenuButtonText>Sair</MenuButtonText>
+              </MenuButton>
         </DrawerScroller>
         <ChangeUnitArea>
           <ChangeUnitButton onPress={handleChangeUnit}>
