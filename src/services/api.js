@@ -66,7 +66,7 @@ const request = async (method, endpoint, params, token = null) => {
       let json = await request('get', '/walls', {}, token);
       return json;
     },
-    likeWallPost: async id => {
+    likeWallPost: async (id) => {
       let token = await AsyncStorage.getItem('token');
       let json = await request('post', `/wall/${id}/like`, {}, token);
       return json;
