@@ -5,29 +5,29 @@ import C from './style';
 import {useStateValue} from '../../contexts/StateContext';
 import api from '../../services/api';
 
-import DocItem from '../../components/DocItem';
+import WarningItem from '../../components/WarningItem';
 
 export default () => {
   const navigation = useNavigation();
   const [context, dispatch] = useStateValue();
 
   const [loading, setLoading] = useState(true);
-  const [docList, setDocList] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(()=>{
     navigation.setOptions({
-      headerTitle: 'Boletos'
+      headerTitle: 'Livro de ocorrências'
     });
-    getBillets();
+    getWarnings();
   },[]);
 
-  const getBillets = async () => {
-    setDocList([]);
+  const getWarnings = async () => {
+    setList([]);
     setLoading(true);
-    const result = await api.getBillets();
+    const result = await api.getWarnings();
     setLoading(false);
     if(result.error === '') {
-      setDocList(result.list);
+      setList(result.list);
     } else {
       alert(result.error);
     }
@@ -35,17 +35,17 @@ export default () => {
 
   return (
     <C.Container>
-      {!loading && docList.length === 0 && 
+      {!loading && List.length === 0 && 
         <C.NoListArea>
-          <C.NoListText>Não há boletos desta unidade.</C.NoListText>
+          <C.NoListText>Não há ocorrências.</C.NoListText>
         </C.NoListArea>
       }     
 
       <C.List 
-        data={docList}
-        onRefresh={getBillets}
+        data={List}
+        onRefresh={getWarnings}
         refreshing={loading}
-        renderItem={({item})=><DocItem data={item} />}
+        renderItem={({item})=><WarningItem data={item} />}
         keyExtractor={(item)=>item.id.toString()}
       />
     </C.Container>
