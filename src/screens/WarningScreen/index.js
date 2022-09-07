@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import C from './style';
 
 import {useStateValue} from '../../contexts/StateContext';
@@ -16,7 +17,13 @@ export default () => {
 
   useEffect(()=>{
     navigation.setOptions({
-      headerTitle: 'Livro de ocorrências'
+      headerTitle: 'Livro de ocorrências',
+      headerRight: () => (
+        <C.AddButton onPress={()=>navigation.navigate('WarningAddScreen')}>
+            <Icon name="plus" size={24} color="#000" />
+        </C.AddButton>
+      )
+
     });
     getWarnings();
   },[]);
@@ -35,14 +42,14 @@ export default () => {
 
   return (
     <C.Container>
-      {!loading && List.length === 0 && 
+      {!loading && list.length === 0 && 
         <C.NoListArea>
           <C.NoListText>Não há ocorrências.</C.NoListText>
         </C.NoListArea>
       }     
 
       <C.List 
-        data={List}
+        data={list}
         onRefresh={getWarnings}
         refreshing={loading}
         renderItem={({item})=><WarningItem data={item} />}
