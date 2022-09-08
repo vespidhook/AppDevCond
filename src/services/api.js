@@ -140,5 +140,11 @@ const request = async (method, endpoint, params, token = null) => {
       );
       return json;
     },
+
+    getReservations: async () => {
+      let token = await AsyncStorage.getItem('token');
+      let json = await request('get', '/reservations', {}, token);
+      return json;
+    }
   };
   
