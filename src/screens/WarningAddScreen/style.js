@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
+        background-color: #F5F6FA;
     `,
     Scroller: styled.ScrollView`
         flex: 1;
@@ -16,8 +16,8 @@ export default {
     `,
     Field: styled.TextInput`
         border-width: 1px;
-        border-color: #ccc;
-        background-color: #fff;
+        border-color: #CCC;
+        background-color: #FFF;
         border-radius: 5px;
         color: #000;
         font-size: 15px;
@@ -35,13 +35,13 @@ export default {
         justify-content: center;
         align-items: center;
         border-width: 1px;
-        border-color: #ccc;
+        border-color: #CCC;
         border-radius: 5px;
     `,
     PhotoItem: styled.View`
         width: 65px;
         border-width: 1px;
-        border-color: #ccc;
+        border-color: #CCC;
         border-radius: 5px;
         padding-bottom: 5px;
         margin-left: 5px;
@@ -55,7 +55,7 @@ export default {
     `,
     PhotoRemoveButton: styled.TouchableOpacity``,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #8863e6;
+        background-color: #8863E6;
         padding: 12px;
         justify-content: center;
         align-items: center;
@@ -64,10 +64,10 @@ export default {
     ButtonText: styled.Text`
         font-size: 15px;
         font-weight: bold;
-        color: #fff;
-    `,     
+        color: #FFF;
+    `,
     LoadingText: styled.Text`
         font-size: 15px;
         margin: 10px 0;
-    `,
-}
+    `
+};

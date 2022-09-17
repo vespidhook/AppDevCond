@@ -3,9 +3,8 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
-        padding: 20px;
-    `,    
+        background-color: #F5F6FA;
+    `,
     Scroller: styled.ScrollView`
         flex: 1;
         padding: 20px;
@@ -25,15 +24,15 @@ export default {
         margin: 10px 0;
     `,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #8863e6;
+        background-color: #8863E6;
         padding: 12px;
         border-radius: 10px;
         justify-content: center;
         align-items: center;
     `,
-    ButtonTest: styled.Text`
-        color: #fff;
+    ButtonText: styled.Text`
+        color: #FFF;
         font-size: 15px;
         font-weight: bold;
-    `,
-}
+    `
+};

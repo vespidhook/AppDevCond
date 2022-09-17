@@ -4,12 +4,12 @@ export default {
     Container: styled.SafeAreaView`
         flex: 1;
         padding: 20px;
-        background-color: #f5f6fa;
+        background-color: #F5F6FA;
     `,
     Field: styled.TextInput`
         border-width: 1px;
-        border-color: #ccc;
-        background-color: #fff;
+        border-color: #CCC;
+        background-color: #FFF;
         border-radius: 5px;
         color: #000;
         font-size: 15px;
@@ -17,7 +17,7 @@ export default {
         margin-bottom: 15px;
     `,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #8863e6;
+        background-color: #8863E6;
         padding: 12px;
         justify-content: center;
         align-items: center;
@@ -25,8 +25,8 @@ export default {
         margin-bottom: 15px;
     `,
     ButtonText: styled.Text`
-        color: #fff;
+        color: #FFF;
         font-size: 15px;
         font-weight: bold;
     `
-} 
+};

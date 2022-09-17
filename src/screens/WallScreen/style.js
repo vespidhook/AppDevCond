@@ -3,9 +3,9 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
+        background-color: #F5F6FA;
         padding: 20px;
-    `,    
+    `,
     LoadingIcon: styled.ActivityIndicator``,
     NoListArea: styled.View`
         justify-content: center;
@@ -19,4 +19,4 @@ export default {
     List: styled.FlatList`
         flex: 1;
     `
-}
+};

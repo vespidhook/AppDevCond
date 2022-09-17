@@ -3,9 +3,11 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
+        background-color: #F5F6FA;
     `,
-    Scroller: styled.ScrollView``,
+    Scroller: styled.ScrollView`
+        flex: 1;
+    `,
     LoadingIcon: styled.ActivityIndicator``,
     NoListArea: styled.View`
         justify-content: center;
@@ -26,4 +28,7 @@ export default {
         padding-left: 20px;
         margin-bottom: 20px;
     `,
-}
+    AddButton: styled.TouchableOpacity`
+        margin-right: 15px;
+    `
+};

@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
-    `,    
+        background-color: #F5F6FA;
+    `,
     Scroller: styled.ScrollView`
         flex: 1;
     `,
@@ -26,30 +26,30 @@ export default {
     TimeListArea: styled.View`
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-bottom: 30px;
     `,
     TimeItem: styled.TouchableOpacity`
         border-width: 1px;
-        border-color: #ccc;
+        border-color: #CCC;
         border-radius: 5px;
         margin: 5px 20px;
-        background-color: ${props=>props.active ? '#8863e6' : 'transparent'};
+        background-color: ${props=>props.active ? '#8863E6':'transparent'};
         padding: 10px;
     `,
     TimeItemText: styled.Text`
-        color: ${props=>props.active ? '#fff' : '#000'};
+        color: ${props=>props.active ? '#FFF':'#000'};
         font-size: 14px;
     `,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #8863e6;
+        background-color: #8863E6;
         padding: 15px;
         justify-content: center;
         align-items: center;
     `,
     ButtonText: styled.Text`
-        color: #fff;
+        color: #FFF;
         font-size: 15px;
         font-weight: bold;
-    `,
-}
+    `
+};

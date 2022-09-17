@@ -13,7 +13,7 @@ export default () => {
     return (
         <Stack.Navigator screenOptions={{
             headerStyle: {
-                backgroundColor: '#f5f6fa',
+                backgroundColor: '#F5F6FA',
                 elevation: 0,
                 shadowOpacity: 0
             }
@@ -38,11 +38,11 @@ export default () => {
                 component={ChoosePropertyScreen}
                 options={{headerShown: false}}
             />
-                <Stack.Screen
+            <Stack.Screen
                 name="MainDrawer"
                 component={MainDrawer}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
-    )
-}
+    );
+};

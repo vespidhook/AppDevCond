@@ -3,11 +3,11 @@ import styled from 'styled-components/native';
 export default {
     Container: styled.SafeAreaView`
         flex: 1;
-        background-color: #f5f6fa;
+        background-color: #F5F6FA;
     `,
     Scroller: styled.ScrollView`
-        padding: 20px;
         flex: 1;
+        padding: 20px;
     `,
     LoadingIcon: styled.ActivityIndicator``,
     HeadTitle: styled.Text`
@@ -21,13 +21,13 @@ export default {
         align-items: center;
     `,
     ExitButtonArea: styled.TouchableOpacity`
-        background-color: #8863e6;
+        background-color: #8863E6;
         padding: 15px;
         justify-content: center;
         align-items: center;
     `,
     ExitButtonText: styled.Text`
-        color: #fff;
+        color: #FFF;
         font-size: 15px;
         font-weight: bold;
     `,
@@ -35,9 +35,9 @@ export default {
         margin: 20px 0;
     `,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #fff;
+        background-color: #FFF;
         border-width: 2px;
-        border-color: #e8e9ed;
+        border-color: #E8E9ED;
         border-radius: 20px;
         padding: 15px;
         align-items: center;
@@ -47,5 +47,5 @@ export default {
         color: #000;
         font-size: 15px;
         font-weight: bold;
-    `,
-} 
+    `
+};

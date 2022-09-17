@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Alert } from 'react-native';
-
 import api from '../services/api';
 
 const Box = styled.View`
-    background-color: #fff;
+    background-color: #FFF;
     border-width: 2px;
-    border-color: #e8e9ed;
+    border-color: #E8E9ED;
     border-radius: 15px;
     margin-bottom: 15px;
     flex-direction: row;
@@ -30,7 +29,7 @@ const Title = styled.Text`
     margin-bottom: 5px;
 `;
 const InfoText = styled.Text`
-    color: #9c9db9;
+    color: #9C9DB9;
 `;
 const DateText = styled.Text`
     color: #000;
@@ -39,12 +38,12 @@ const ButtonItem = styled.TouchableOpacity`
     margin: 20px;
 `;
 
-export default ({data, refreshFunction}) => { 
+export default ({data, refreshFunction}) => {
 
     const handleRemoveButton = () => {
         Alert.alert(
             'Confirmação',
-            'Tem certeza que deseja cancelar esta reserva?',
+            'Tem certeza que deseja cancelar a reserva?',
             [
                 {text: 'Sim, tenho certeza', onPress: removeReservation},
                 {text: 'Cancelar', onPress: null, style: 'cancel'}
@@ -62,16 +61,16 @@ export default ({data, refreshFunction}) => {
     }
 
     return (
-        <Box>    
+        <Box>
             <CoverImage source={{uri: data.cover}} resizeMode="cover" />
             <InfoArea>
                 <Title>{data.title}</Title>
                 <InfoText>Horário reservado:</InfoText>
                 <DateText>{data.datereserved}</DateText>
-            </InfoArea>   
+            </InfoArea>
             <ButtonItem onPress={handleRemoveButton}>
-                <Icon name="remove" size={25} color="#ff0000" />
-            </ButtonItem>              
+                <Icon name="remove" size={25} color="#FF0000" />
+            </ButtonItem>
         </Box>
     );
 }

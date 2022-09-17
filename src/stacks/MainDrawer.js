@@ -10,6 +10,8 @@ import ReservationScreen from '../screens/ReservationScreen';
 import ReservationAddScreen from '../screens/ReservationAddScreen';
 import ReservationMyScreen from '../screens/ReservationMyScreen';
 import FoundAndLostScreen from '../screens/FoundAndLostScreen';
+import FoundAndLostAddScreen from '../screens/FoundAndLostAddScreen';
+import UnitScreen from '../screens/UnitScreen';
 
 import DrawerCustom from '../components/DrawerCustom';
 
@@ -18,12 +20,12 @@ const Drawer = createDrawerNavigator();
 export default () => {
     return (
         <Drawer.Navigator
-            drawerContent={(props) => <DrawerCustom {...props} />}
+            drawerContent={(props)=><DrawerCustom {...props} />}
             screenOptions={{
                 headerShown: true,
                 headerTitle: '',
                 headerStyle: {
-                    backgroundColor: '#f5f6fa',
+                    backgroundColor: '#F5F6FA',
                     shadowOpacity: 0,
                     elevation: 0
                 }
@@ -65,6 +67,14 @@ export default () => {
                 name="FoundAndLostScreen"
                 component={FoundAndLostScreen}
             />
+            <Drawer.Screen
+                name="FoundAndLostAddScreen"
+                component={FoundAndLostAddScreen}
+            />
+            <Drawer.Screen
+                name="UnitScreen"
+                component={UnitScreen}
+            />
         </Drawer.Navigator>
-    )
+    );
 }

@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import api from '../services/api';
 
 const Box = styled.View`
-    background-color: #fff;
+    background-color: #FFF;
     border-width: 2px;
-    border-color: #e8e9ed;
+    border-color: #E8E9ED;
     border-radius: 20px;
     padding: 15px;
     margin-bottom: 10px;
@@ -29,7 +29,7 @@ const Title = styled.Text`
 const Date = styled.Text`
     font-size: 14px;
     font-weight: bold;
-    color: #9c9db9;
+    color: #9C9DB9;
 `;
 
 const Body = styled.Text`
@@ -51,19 +51,20 @@ const LikeButton = styled.TouchableOpacity`
 const LikeText = styled.Text`
     margin-left: 5px;
     font-size: 13px;
-    color: #9c9db9;
+    color: #9C9DB9;
 `;
 
 export default ({data}) => {
-    const [LikeCount, setLikeCount] = useState(data.likes);
+
+    const [likeCount, setLikeCount] = useState(data.likes);
     const [liked, setLiked] = useState(data.liked);
 
     const handleLike = async () => {
         setLiked(!liked);
         const result = await api.likeWallPost(data.id);
         if(result.error === '') {
-            setLikeCount(result.likes);
-            setLiked(result.liked);
+            setLikeCount( result.likes );
+            setLiked( result.liked );
         } else {
             alert(result.error);
         }
@@ -72,7 +73,7 @@ export default ({data}) => {
     return (
         <Box>
             <HeaderArea>
-                <Icon name="newspaper-o" size={30} color="#8b63e7" />
+                <Icon name="newspaper-o" size={30} color="#8B63E7" />
                 <InfoArea>
                     <Title>{data.title}</Title>
                     <Date>{data.datecreated}</Date>
@@ -83,13 +84,13 @@ export default ({data}) => {
             </Body>
             <FooterArea>
                 <LikeButton onPress={handleLike}>
-                    {liked ?
-                     <Icon name="heart" size={17} color="#ff0000" />
+                    {liked ? 
+                        <Icon name="heart" size={17} color="#FF0000" />
                     : 
-                     <Icon name="heart-o" size={17} color="#ff0000" />
+                        <Icon name="heart-o" size={17} color="#FF0000" />
                     }
                 </LikeButton>
-                <LikeText>{LikeCount} pessoa{LikeCount==1?'':'s'} {LikeCount==1?'curtiu':'curtiram'}</LikeText>
+                <LikeText>{likeCount} pessoa{likeCount==1?'':'s'} curti{likeCount==1?'u':'ram'}</LikeText>
             </FooterArea>
         </Box>
     );
